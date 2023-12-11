@@ -1,21 +1,16 @@
 <?php
-$GLOBALS['username'] = $_COOKIE['login_name_code'];
+$GLOBALS['username'] = $_COOKIE['login_name_zim'];
 $GLOBALS['userprofile'] = array();
 $emptycfg = array(
     'nick' => '',
     'password' => '',
+    'jct'=>time(),
     'llt' => time(),
     'power' => 1,
-    'rating' => 1500,
-    'try' =>
-    array(),
-    'contest' =>
-    array(),
-    'practice' =>
-    array(),
+    'rating' => 0,
     'email' => '',
     'about' => '',
-    'dt' => array()
+    'id'=>'',
 );
 class user
 {
@@ -67,27 +62,11 @@ class user
     {
         /*
         Admin:danger
-        User:primary
-        R<1000 muted
-        R>2500 info
-        Baned warning
-        VIP/leader/doctor success
         */
         if ($user['power'] >= 2) {
             return "danger";
         }
-        if ($user['doctor'] == 1) {
-            return "success";
-        }
-        if ($user['rating'] > 2500) {
-            return "info";
-        }
-        if ($user['rating'] < 1000) {
-            return "muted";
-        }
-        if ($user['ban'] == 1) {
-            return "warning";
-        }
+        
         return "primary";
     }
     /**
@@ -107,7 +86,7 @@ class user
     {
         $name = user::read()['name'];
         $thisup = user::queryUser($name);
-        if ($_COOKIE['login_pas_code'] === md5($thisup['llt'] . $thisup['password'])) {
+        if ($_COOKIE['login_pas_zim'] === md5($thisup['llt'] . $thisup['password'])) {
             if ($init === 1) $GLOBALS['userprofile'] = $thisup;
             return $thisup;
         } else {
@@ -129,8 +108,8 @@ class user
             $GLOBALS['userprofile'] = $cfg;
             $GLOBALS['userprofile']['llt'] = time();
             $pass = md5($GLOBALS['userprofile']['llt'] . $GLOBALS['userprofile']['password']);
-            setcookie("login_name_code", $name, time() + 3600 * 48, "/");
-            setcookie("login_pas_code", $pass, time() + 3600 * 48);
+            setcookie("login_name_zim", $name, time() + 3600 * 48, "/");
+            setcookie("login_pas_zim", $pass, time() + 3600 * 48);
             $GLOBALS['username'] = $name;
             return user::saveuserchange(1);
         } else {
@@ -186,32 +165,5 @@ class user
     public static function is_superuser()
     {
         return user::read()['profile']['power'] > 1;
-    }
-}
-class custom
-{
-    public static function init()
-    {
-        $mytheme = user::read()['profile']['theme'];
-        if (empty($mytheme)) $mytheme = "light";
-
-        $GLOBALS['themeid'] = $mytheme;
-    }
-    public static function readid()
-    {
-        return $GLOBALS['themeid'];
-    }
-    public static function ToCss($themecfg, $html = 0, $ele = "body")
-    {
-        $css = "$ele{\n";
-        foreach ($themecfg as $k => $v) {
-
-            $css .= $k . ":" . $v . ";\n";
-        }
-        $css .= "}\n";
-        if ($html)
-            return "<style>" . $css . "</style>";
-        else
-            return $css;
     }
 }

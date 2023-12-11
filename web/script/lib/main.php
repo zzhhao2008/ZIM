@@ -15,6 +15,10 @@ function includeC($name)
 {
     return "./script/$name.php";
 }
+function getstatic($name)
+{
+    return file_get_contents("static/$name");
+}
 include includeLib("data");
 include includeLib("router");
 include includeLib("user");
@@ -49,10 +53,6 @@ function requestDecode()
     }
     return $req_all;
 }
-function alert($msg)
-{
-    echo "<script>alert('$msg')</script>";
-}
 function jsjump($u)
 {
     echo "<script>window.location='$u'</script>";
@@ -62,8 +62,8 @@ function jsreload()
     echo "<script>window.location.reload()</script>";
 }
 
-function getstatic($name)
-{
-    return file_get_contents("static/$name");
-}
-$navitems=array("contanct","contest","submissions","problem","practice");
+//$navitems=array("contanct","contest","submissions","problem","practice");
+
+$config=array(
+    "name"=>"ZIM"
+);
