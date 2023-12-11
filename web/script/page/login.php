@@ -1,4 +1,5 @@
 <?php
+
 if($_POST['username']){
     if(user::login($_POST['username'],$_POST['password'])){
         jsreload();

@@ -1,6 +1,7 @@
 <?php
-Router::any("logup", "logup");
+Router::login("/", "index");
+Router::login("login","index");
+Router::login("logup", "index");
 
-Router::login("/", "index.php");
-
+Router::guest("logup", "logup");
 Router::guest("/", "login");

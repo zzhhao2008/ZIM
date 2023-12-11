@@ -102,6 +102,7 @@ class user
     {
         $cfg = user::queryUser($name);
         if ($cfg === 0) {
+            
             return 0;
         }
         if ($cfg['password'] === md5($pas)) {

@@ -19,6 +19,10 @@ function getstatic($name)
 {
     return file_get_contents("static/$name");
 }
+$config=array(
+    "name"=>"ZIM"
+);
+//include includeC("config.php");
 include includeLib("data");
 include includeLib("router");
 include includeLib("user");
@@ -64,6 +68,3 @@ function jsreload()
 
 //$navitems=array("contanct","contest","submissions","problem","practice");
 
-$config=array(
-    "name"=>"ZIM"
-);
