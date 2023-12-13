@@ -1,0 +1,278 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    width: 100%;
+    background-color: #E0ffff;
+    height: 50px;
+    position: fixed;
+    z-index: 9900;
+    bottom: 0;
+    top: calc(100% - 50px)
+}
+
+.navbar-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 10px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.navbar-item.active {
+    background: #FFFFFF;
+
+}
+
+.pages {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    top: 0;
+    left: -100%;
+    background: #fff;
+    padding-top: 50px;
+}
+
+.pages ul p {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.pages ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.pages .ua {
+    font-size: 25px;
+}
+
+ul img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-right: 15px;
+}
+
+.aboutmain {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    height: calc(100% - 50px);
+}
+
+.headbars {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    background: #E0ffff;
+    z-index: 9998;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+}
+
+.toolheadbars {
+    width: 100%;
+    height: 50px;
+    background: #D0EEEE;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+}
+.toolbody{
+    overflow-y: auto;
+    max-height: 95%;
+}
+.fullbtn {
+    display: block;
+    width: 100%;
+    border: none;
+    margin-bottom: 2px;
+}
+
+.righttools {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.righttools>* {
+    display: none;
+    min-width: 250px;
+    max-width: 500px;
+    width: 90vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    background: #D0DDDD;
+    height: 100%;
+    padding-left: 5px;
+}
+
+.closebtn {
+    background: none;
+    height: 50px;
+    width: 50px;
+    float: right;
+    border: none;
+}
+
+.closebtn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.aboutme b {
+    font-size: 25px;
+}
+
+.aboutme {
+    margin: 5px;
+    margin-bottom: 50px;
+
+}
+
+.groupdiv {
+    background: #E9E9E9E9;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9901;
+    display: none;
+}
+
+.groupheader {
+    height: 50px;
+    background: #E0FFFF;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+}
+
+.groupheader a:hover,
+.groupheader a:link,
+.groupheader a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.groupheader a {
+    float: left;
+    color: #000;
+    text-decoration: none;
+}
+
+.sendbox {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sendbox textarea {
+    margin: 0;
+    width: calc(100% - 55px);
+    height: 100%;
+}
+
+.sendbox button {
+    position: absolute;
+    margin: 0;
+    height: 50px;
+    width: 50px;
+    top: 0;
+}
+
+.group-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.group-icon {
+    margin-right: 10px;
+}
+
+.group-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.mesbox p {
+    width: fit-content;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    background: #fff;
+    max-width: 99%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.mesbox {
+    top: 50px;
+    left: 0;
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    overflow-y: scroll;
+    bottom: 60px;
+}
+
+.mesbox .minediv .mine {
+    background-color: rgba(18, 183, 235, 1);
+    display: inline-block;
+    text-align: right;
+}
+
+.mesbox .minediv {
+    width: 100%;
+    text-align: right;
+    display: inline-block;
+}
+
+.mesbox b {
+    text-align: center;
+
+}
+.et{
+    position: absolute;
+    right: 15px;
+    opacity: 0.8;
+}
